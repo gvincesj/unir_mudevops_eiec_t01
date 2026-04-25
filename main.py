@@ -4,7 +4,12 @@ import os
 
 DEFAULT_FILENAME = "words.txt"
 
-def sort_list(words, reverse=False):
+def remove_duplicates(words):
+    return list(dict.fromkeys(words))
+
+def sort_list(words, reverse=False, remove_duplicates_enabled=False):
+    if remove_duplicates_enabled:
+        words = remove_duplicates(words)
     return sorted(words, reverse=reverse)
 
 if __name__ == "__main__":
@@ -23,4 +28,7 @@ if __name__ == "__main__":
     orden_descendente = "--desc" in sys.argv
     result = sort_list(words, reverse=orden_descendente)
 
+    remove_duplicates_enabled = "--unique" in sys.argv
+    result = sort_list(words, remove_duplicates_enabled=remove_duplicates_enabled)
+    
     print(result)
