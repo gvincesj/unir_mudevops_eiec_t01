@@ -32,3 +32,33 @@ if __name__ == "__main__":
     result = sort_list(words, remove_duplicates_enabled=remove_duplicates_enabled)
     
     print(result)
+
+
+import argparse
+
+def read_file(filename):
+    with open(filename, 'r') as f:
+        words = [line.strip() for line in f.readlines()]
+    return words
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--file', type=str, help='Archivo con palabras')
+    parser.add_argument('words', nargs='*')
+
+    args = parser.parse_args()
+
+    if args.file:
+        try:
+            words = read_file(args.file)
+        except FileNotFoundError:
+            print("Error: archivo no encontrado")
+            return
+    else:
+        words = args.words
+
+    words.sort()
+    print(words)
+
+if __name__ == "__main__":
+    main()
