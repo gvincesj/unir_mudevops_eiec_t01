@@ -40,13 +40,7 @@ uva
 ### 🔹 Sintaxis general
 
 ```bash
-python main.py [archivo] [opciones]
-```
-
-o
-
-```bash
-python main.py --file <archivo>
+python main.py --file <archivo> [opciones]
 ```
 
 ---
@@ -73,47 +67,20 @@ python main.py --file <archivo>
 
 ## 📌 Ejemplos de uso
 
-### 1. Ordenar palabras (archivo por defecto)
+1. **Ejecución básica (Toma el archivo words.txt por defecto y ordena A-Z):**
+   ```
+   python main.py
+   ```
 
-```bash
-python main.py
-```
+2. **Procesar un archivo específico eliminando duplicados:**
+   ```
+   python main.py --file otro_archivo.txt --unique
+   ```
 
-### 2. Especificar archivo
-
-```bash
-python main.py palabras.txt
-```
-
-### 3. Orden descendente
-
-```bash
-python main.py palabras.txt --desc
-```
-
-### 4. Eliminar duplicados
-
-```bash
-python main.py palabras.txt --unique
-```
-
-### 5. Combinar opciones
-
-```bash
-python main.py palabras.txt --desc --unique
-```
-
-### 6. Uso con parámetro `--file`
-
-```bash
-python main.py --file palabras.txt
-```
-
-### 7. Ingreso directo por consola
-
-```bash
-python main.py manzana pera banana
-```
+3. **Aplicar todos los filtros (Descendente + Sin duplicados) en el archivo por defecto:**
+   ```
+   python main.py --desc --unique
+   ```
 
 ---
 
